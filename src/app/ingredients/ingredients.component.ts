@@ -13,6 +13,8 @@ import { OrderComponent } from '../order/order.component';
   styleUrls: ['./ingredients.component.scss']
 })
 export class IngredientsComponent implements OnInit {
+  orderComponentRef: MatDialogRef<OrderComponent>;
+
   constructor(private SammichService: SammichService, private dialog: MatDialog) { }
 
 ingredients;
@@ -41,8 +43,10 @@ getSandwich(): void {
 
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
+        this.orderComponentRef = this.dialog.open(OrderComponent, {
+            data: { sandwich: this.sandwich },
+        });
 
-        this.dialog.open(OrderComponent, dialogConfig);
     }
 
   ngOnInit() {

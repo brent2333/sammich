@@ -1,14 +1,8 @@
 import {Component, Inject, OnInit, ViewEncapsulation} from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
-import {Course} from "../model/course";
 import {FormBuilder, Validators, FormGroup} from "@angular/forms";
-import * as moment from 'moment';
 
 import { SammichService } from '../sammich.service';
-
-export interface DialogData {
-  sammich: string;
-}
 
 @Component({
   selector: 'app-order',
@@ -17,16 +11,14 @@ export interface DialogData {
 })
 export class OrderComponent implements OnInit {
 
-    form: FormGroup;
-    description:string;
-
     constructor(
-        private dialogRef: MatDialogRef<OrderComponent> ) {
+        private dialogRef: MatDialogRef<OrderComponent> ,
+        @Inject(MAT_DIALOG_DATA) public data: any
+        ) {
 
     }
 
     ngOnInit() {
-
     }
 
 
