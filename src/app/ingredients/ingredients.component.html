@@ -1,0 +1,37 @@
+ <div class="rela">
+ 	<div>
+ 	<button mat-raised-button *ngIf="sandwich.length" (click)="openDialog()">ORDER MY SAMMICH!</button>
+ </div>
+ 	<div class="ingredient-container">
+  <h2>Available Ingredients</h2>
+
+  <div
+    cdkDropList
+    #ingredientsList="cdkDropList"
+    [cdkDropListData]="ingredients"
+    [cdkDropListConnectedTo]="[sandwichList]"
+    class="ingredient-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="ingredient-box" *ngFor="let ingredient of ingredients" cdkDrag>{{ingredient.name}}</div>
+  </div>
+</div>
+
+<div class="ingredient-container">
+  <h2>My Sammich</h2>
+<div class="bread"></div>
+  <div
+    cdkDropList
+    #sandwichList="cdkDropList"
+    [cdkDropListData]="sandwich"
+    [cdkDropListConnectedTo]="[ingredientsList]"
+    class="ingredient-list"
+    (cdkDropListDropped)="drop($event)"
+    >
+    <div class="ingredient-box" *ngFor="let ingredient of sandwich" cdkDrag>{{ingredient.name}}</div>
+  </div>
+  <div class="bread-bottom"></div>
+</div>
+</div>
+<!-- All lists in here will be connected. -
+  <div cdkDropList *ngFor="let list of lists"></div>
+</div>-->
