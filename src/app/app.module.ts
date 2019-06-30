@@ -6,7 +6,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-
+import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 
 
@@ -29,7 +29,8 @@ import { IngredientDetailComponent } from './ingredient-detail/ingredient-detail
     BrowserAnimationsModule,
     FormsModule,
     DragDropModule,
-    MatDialogModule
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [],
   entryComponents: [OrderComponent],

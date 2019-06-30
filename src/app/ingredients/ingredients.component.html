@@ -1,7 +1,6 @@
  <div class="rela">
  	<div>
- 	<button mat-raised-button *ngIf="sandwich.length" (click)="openDialog()">ORDER MY SAMMICH!</button>
- </div>
+ 	<button mat-raised-button color="primary" *ngIf="sandwich.length" (click)="openDialog()">ORDER MY SAMMICH!</button> </div>
  	<div class="ingredient-container">
   <h2>Available Ingredients</h2>
 
@@ -12,7 +11,7 @@
     [cdkDropListConnectedTo]="[sandwichList]"
     class="ingredient-list"
     (cdkDropListDropped)="drop($event)">
-    <div class="ingredient-box" *ngFor="let ingredient of ingredients" cdkDrag>{{ingredient.name}}</div>
+    <div class="ingredient-box" *ngFor="let ingredient of ingredients" cdkDrag>{{ingredient.name}}<img *cdkDragPreview [src]="ingredient.image" [alt]="ingredient.name"></div>
   </div>
 </div>
 

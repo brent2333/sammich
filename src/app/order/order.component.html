@@ -1,11 +1,13 @@
 <h1 mat-dialog-title>Aight, then!</h1>
 <div mat-dialog-content>
-	<p>Is this your order?</p>
+	<h2>Is this your order?</h2>
 	<ul *ngFor="let piece of data.sandwich">
-		<li>{{ piece.name }}</li>
+		<li class="order-item"><span class="order-name">{{ piece.name }}</span><img src="{{ piece.image }}" /></li>
 	</ul>
 </div>
 <div mat-dialog-actions>
 	<button mat-button [mat-dialog-close]="" >No</button>
-	<button mat-button (click)= cdkFocusInitial>Yep, gimme dat.</button>
+	<button mat-raised-button color="primary" (click)="save()">Yep, gimme dat.</button>
 </div>
+<br><br>
+<div *ngIf="showMessage">Thanks! Coming right up!</div>

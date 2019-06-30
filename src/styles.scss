@@ -47,3 +47,10 @@ $theme: mat-light-theme($primary, $accent);
 .mat-dialog-container {
         font-family: Arial, Helvetica, sans-serif;
 }
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+ul {
+        list-style-type: none;
+        padding: 0;
+}

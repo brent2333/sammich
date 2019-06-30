@@ -4,7 +4,8 @@ import { SammichService } from '../sammich.service';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatDialog, MatDialogConfig} from "@angular/material";
+import {MatDialog, MatDialogRef, MatDialogConfig} from "@angular/material";
+
 import { OrderComponent } from '../order/order.component';
 
 @Component({
@@ -19,6 +20,7 @@ export class IngredientsComponent implements OnInit {
 
 ingredients;
 sandwich;
+successMessage = this.SammichService.getSuccess();
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {

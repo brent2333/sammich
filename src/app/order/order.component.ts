@@ -1,6 +1,5 @@
 import {Component, Inject, OnInit, ViewEncapsulation} from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
-import {FormBuilder, Validators, FormGroup} from "@angular/forms";
 
 import { SammichService } from '../sammich.service';
 
@@ -10,10 +9,11 @@ import { SammichService } from '../sammich.service';
   styleUrls: ['./order.component.scss']
 })
 export class OrderComponent implements OnInit {
-
+showMessage = false;
     constructor(
         private dialogRef: MatDialogRef<OrderComponent> ,
-        @Inject(MAT_DIALOG_DATA) public data: any
+        @Inject(MAT_DIALOG_DATA) public data: any,
+        private SammichService: SammichService
         ) {
 
     }
@@ -23,7 +23,11 @@ export class OrderComponent implements OnInit {
 
 
     save() {
-        //this.dialogRef.close(this.form.value);
+        this.showMessage = true;
+        let self = this;
+        setTimeout(function() {
+            self.dialogRef.close();
+        }, 2000);
     }
 
     close() {
